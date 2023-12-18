@@ -1,0 +1,67 @@
+$spacing-unit: 40px;
+$small-spacing: 20px;
+$extra-small-spacing: 10px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #303032;
+}
+
+main {
+  padding: $spacing-unit 0;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-unit; // use gap to create spacing between cards
+}
+
+.card {
+  flex: 1 0 calc(25% - #{$spacing-unit}); // 4 cards per row
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    flex-basis: calc(50% - #{$spacing-unit / 2}); // 2 cards per row
+  }
+}
+
+@media screen and (max-width: 700px) {
+  main {
+    padding: $small-spacing 0;
+  }
+
+  .cards {
+    gap: $small-spacing;
+  }
+
+  .card {
+    flex-basis: calc(100% - #{$small-spacing}); //  1 card per row
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    padding: $extra-small-spacing 0;
+  }
+
+  .cards {
+    gap: $extra-small-spacing;
+  }
+
+  .card {
+    flex-basis: calc(100% - #{$extra-small-spacing}); //  1 card per row
+  }
+}
